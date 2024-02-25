@@ -1,9 +1,9 @@
 import { CanActivateFn } from '@angular/router';
-import { FeatureFlagsService } from './feature-flags.service';
 import { inject } from '@angular/core';
+import { IFeatureFlagsService } from './feature-flags.interface';
 
 export const featureGuardGuard: CanActivateFn = (route, state) => {
-  const features = inject(FeatureFlagsService);
-  // return features.isFeatureEnabled(state.url);
-  return true;
+  const features = inject(IFeatureFlagsService);
+  console.log(route.data['feature'])
+  return features.isFeatureEnabled(route.data['feature']);
 };
