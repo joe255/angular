@@ -9,18 +9,23 @@ import { IFeatureFlagsService } from './guards/feature-flags.interface';
 import { environment } from '../environments/environment';
 import { MockFeatureFlagsService } from './guards/mock-feature-flags.service';
 import { FeatureFlagsService } from './guards/feature-flags.service';
-import { HeadlineComponent } from './headline/headline.component';
 import { CommonModule } from '@angular/common';
+import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
+import { CreateTransactionModalComponent } from './create-transaction-modal/create-transaction-modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     FeatureFlagDirective,
+    
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CommonModule,
   ],
   providers: [
     {

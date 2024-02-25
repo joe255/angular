@@ -1,0 +1,54 @@
+<div class="transaction-page">
+    <h2>Transactions</h2>
+    <div *ngIf="isLoading">
+        <!-- Display skeleton loaders for the number of rows you want -->
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+            <tr *ngFor="let _ of [].constructor(10)"> <!-- Create 10 skeleton rows -->
+                <td><app-skeleton-loader></app-skeleton-loader></td>
+                <td><app-skeleton-loader></app-skeleton-loader></td>
+                <td><app-skeleton-loader></app-skeleton-loader></td>
+                <td><app-skeleton-loader></app-skeleton-loader></td>
+            </tr>
+        </table>
+    </div>
+
+    <div *ngIf="!isLoading">
+        <table>
+            <!-- Table Headers -->
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+            <!-- Table Rows -->
+            <tr *ngFor="let transaction of transactions">
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.description }}</td>
+                <td>{{ transaction.amount | currency:'USD':'symbol' }}</td>
+            </tr>
+        </table>
+        <!-- Pagination Controls -->
+        <div class="pagination-controls">
+            <button (click)="onPrev()" [disabled]="currentPage <= 1">Previous</button>
+            <button (click)="onNext()" [disabled]="transactions.length < pageSize">Next</button>
+        </div>
+    </div>
+</div>
+
+<!-- Trigger Button -->
+<button (click)="openModal()">Add Transaction</button>
+
+<!-- Modal Component -->
+<app-create-transaction-modal 
+  *ngIf="isModalOpen" 
+  (closeModalEvent)="closeModal()" 
+  (createTransactionEvent)="handleCreateTransaction($event)">
+</app-create-transaction-modal>

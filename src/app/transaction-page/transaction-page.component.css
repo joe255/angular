@@ -1,0 +1,43 @@
+.transaction-page {
+    margin: 20px;
+  }
+  
+  .transaction-page h2 {
+    color: #333;
+  }
+  
+  .transaction-page ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .transaction-page li {
+    margin: 10px 0;
+    color: #666;
+  }
+  /* Add to your existing styles */
+p {
+    background-color: #ececec;
+    height: 20px;
+    margin: 10px 0;
+    width: 100%;
+  }
+  
+  .transaction-page table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .transaction-page th, .transaction-page td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Add this to ensure the skeleton loader fits well in the table cells */
+  app-skeleton-loader {
+    height: 20px; /* Adjust based on your design */
+    width: 100%; /* Adjust if necessary */
+    display: block; /* Ensures it takes the full width */
+  }
+  

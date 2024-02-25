@@ -1,0 +1,20 @@
+.skeleton-loader {
+    background-color: #ecebeb;
+    border-radius: 4px;
+    min-height: 20px;
+    width: 100%;
+    animation: fade 1.5s infinite;
+  }
+  
+  @keyframes fade {
+    0% {
+      background-color: #e0e0e0;
+    }
+    50% {
+      background-color: #c2c2c2;
+    }
+    100% {
+      background-color: #e0e0e0;
+    }
+  }
+  
